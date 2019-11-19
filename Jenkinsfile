@@ -2,18 +2,30 @@ node{
    
    stage(" Code Checkout"){
       echo 'App build started..'
-      git credentialsId: 'githubID', url: 'https://github.com/itrainwarriors/python-docker-app-openshifts.git'
+      git credentialsId: 'githubID', url: 'https://github.com/itrainpulsars/pyapp-docker.git'
       }
+   stage('Code Build') {
+     
+    }
+   stage('Unit Test') {
+     
+    }
+   stage('Code Analysis') {
+     
+    }
+   stage('Artifactory deploy') {
+     
+    }
    
    stage('Docker Build') {
-     def app = docker.build "manee2k6/itrain-warrior-pyapp"
+     def app = docker.build "manee2k6/pulsar-pyapp"
     }
    
    stage("Tag & Push image"){
       withDockerRegistry([credentialsId: 'github-docker',url: ""]) {
-          sh 'docker tag manee2k6/itrain-warrior-pyapp manee2k6/itrain-warrior-pyapp:dev'
-          sh 'docker push manee2k6/itrain-warrior-pyapp:dev'
-          sh 'docker push manee2k6/itrain-warrior-pyapp:latest'
+          sh 'docker tag manee2k6/pulsar-pyapp manee2k6/pulsar-pyapp:dev'
+          sh 'docker push manee2k6/pulsar-pyapp:dev'
+          sh 'docker push manee2k6/pulsar-pyapp:latest'
       }
     }
     stage("App deployment started"){
