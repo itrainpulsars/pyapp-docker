@@ -19,7 +19,7 @@ RUN pip install -r requirements.txt
 EXPOSE 5000
 
 # Define environment variable
-ENV NAME ITRAIN-WARRIOR
+ENV NAME ITRAIN-PULSAR
 
 #When you launch the container, it runs the script and then exits
 ENTRYPOINT ["newrelic-admin", "run-program"]
