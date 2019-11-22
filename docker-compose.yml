@@ -3,7 +3,8 @@ services:
   redis: 
     image: redis
   pyapp: 
-    build: "."
+   #build: "."
+    image: manee2k6/pulsar-pyapp
     ports: 
       - "5000:5000"
     volumes: 
