@@ -5,7 +5,11 @@ services:
   pyapp: 
    #build: "."
     image: manee2k6/pulsar-pyapp
+    deploy:
+      replicas: 2
     ports: 
       - "5000:5000"
     volumes: 
       - "/home/ubuntu/pyapp-docker:/code"
+    depends_on:
+      - redis
